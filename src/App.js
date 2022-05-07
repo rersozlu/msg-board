@@ -52,7 +52,9 @@ function App() {
       </h1>
       <div className="App">
         <nav>
-          <h1>MESSAGE BOARD - Rinkeby Testnet</h1>
+          <h1>
+            MESSAGE BOARD <span className="italic"> - Rinkeby Testnet</span>
+          </h1>
           <p>Total Messages: {waveNum}</p>
           <button onClick={async () => setAccount(await connectWallet())}>
             {account ? "Connected" : "ConnectWallet"}

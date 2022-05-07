@@ -136,3 +136,8 @@ footer {
   font-size: 12px;
   text-align: end;
 }
+
+.italic {
+  font-family: "Square Peg", cursive;
+  font-size: 1.2em;
+}
