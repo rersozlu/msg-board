@@ -1,0 +1,125 @@
+html {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #22c1c3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #fdbb2d,
+    #22c1c3
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #fdbb2d,
+    #22c1c3
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #23074d;
+}
+
+.App {
+  background-color: beige;
+  padding: 2em 2em;
+  width: 50%;
+  border-radius: 15px;
+  margin: 20px auto;
+}
+nav {
+  color: #cc5333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav > button {
+  border: none;
+  border-radius: 10px;
+  padding: 1em 2em;
+  color: beige;
+  background: #23074d; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #cc5333,
+    #23074d
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #cc5333,
+    #23074d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+nav > button:hover {
+  cursor: pointer;
+}
+.form {
+  display: flex;
+  background-color: #23074d;
+  justify-content: center;
+  width: 70%;
+  align-items: center;
+  padding: 1em 2em;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+.form input {
+  border: none;
+  font-size: 16px;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+}
+.form button {
+  background-image: linear-gradient(
+    to right,
+    #dae2f8 0%,
+    #d6a4a4 51%,
+    #dae2f8 100%
+  );
+  margin: 10px;
+  padding: 0.5em 2em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #23074d;
+  box-shadow: 0 0 20px #cc5333;
+  border-radius: 10px;
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #23074d;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.message p,
+.message h4 {
+  margin: 0;
+}
+.message {
+  background: #d6a4a4;
+  padding: 0.1em 0.5em;
+  font-size: 15px;
+  width: 70%;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+.warning {
+  display: none;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .App {
+    display: none;
+  }
+  .warning {
+    display: block;
+  }
+}
