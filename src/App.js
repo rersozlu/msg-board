@@ -23,7 +23,12 @@ function App() {
       return (
         <div className="message" key={index}>
           <h4>MSG NO: {index + 1}</h4>
-          <p>Sender: {msg.address}</p>
+          <p>
+            Sender:{" "}
+            {msg.address.slice(0, 3) +
+              "..." +
+              msg.address.slice(-4, msg.address.length)}
+          </p>
           <p>
             Content: <strong>{msg.message}</strong>
           </p>
