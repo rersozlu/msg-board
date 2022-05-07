@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { checkIfWalletConnected, connectWallet } from "./utils/walletFuncs";
 import { getWaveCount, wave, getAllWaves } from "./utils/contractFuncs";
 import { Hashicon } from "@emeraldpay/hashicon-react";
+import Loading from "./Loading";
 function App() {
   const [account, setAccount] = useState("");
   const [waveNum, setWaveNum] = useState(0);
   const [message, setMessage] = useState("");
+  const [messageSending, setMessageSending] = useState(false);
   const [allMessages, setAllMessages] = useState([]);
   useEffect(() => {
     try {
@@ -78,17 +80,25 @@ function App() {
           />
           <button
             onClick={async () => {
-              if (message && message !== " ") {
-                setWaveNum(await wave(message));
-                setMessage("");
-              } else {
-                alert("Please send a valid message!");
+              try {
+                if (message && message !== " ") {
+                  setMessageSending(true);
+                  setWaveNum(await wave(message));
+                  setMessage("");
+                  setMessageSending(false);
+                } else {
+                  alert("Please send a valid message!");
+                }
+              } catch (e) {
+                console.log(e);
+                setMessageSending(false);
               }
             }}
           >
             Send Message
           </button>
         </div>
+        {messageSending && <Loading />}
         {allMessagesArray}
       </div>
     </>

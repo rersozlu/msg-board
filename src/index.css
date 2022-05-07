@@ -134,3 +134,21 @@ nav > button:hover {
   font-family: "Square Peg", cursive;
   font-size: 1.2em;
 }
+
+.loading {
+  height: 50px;
+  width: 35%;
+  border-radius: 10px;
+  color: #23074d;
+  font-family: "Sacramento", cursive;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1px auto;
+}
+
+.loading-icon {
+  margin: 0;
+  width: 25%;
+}
