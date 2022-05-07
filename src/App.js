@@ -3,6 +3,7 @@ import { checkIfWalletConnected, connectWallet } from "./utils/walletFuncs";
 import { getWaveCount, wave, getAllWaves } from "./utils/contractFuncs";
 import { Hashicon } from "@emeraldpay/hashicon-react";
 function App() {
+  
   const [account, setAccount] = useState("");
   const [waveNum, setWaveNum] = useState(0);
   const [message, setMessage] = useState("");
