@@ -59,8 +59,12 @@ function App() {
           />
           <button
             onClick={async () => {
-              setWaveNum(await wave(message));
-              setMessage("");
+              if (message && message !== " ") {
+                setWaveNum(await wave(message));
+                setMessage("");
+              } else {
+                alert("Please send a valid message!");
+              }
             }}
           >
             Send Message
