@@ -3,7 +3,6 @@ import { checkIfWalletConnected, connectWallet } from "./utils/walletFuncs";
 import { getWaveCount, wave, getAllWaves } from "./utils/contractFuncs";
 import { Hashicon } from "@emeraldpay/hashicon-react";
 function App() {
-  
   const [account, setAccount] = useState("");
   const [waveNum, setWaveNum] = useState(0);
   const [message, setMessage] = useState("");
@@ -50,7 +49,7 @@ function App() {
       </h1>
       <div className="App">
         <nav>
-          <h1>MESSAGE BOARD</h1>
+          <h1>MESSAGE BOARD - Rinkeby Testnet</h1>
           <p>Total Messages: {waveNum}</p>
           <button onClick={async () => setAccount(await connectWallet())}>
             {account ? "Connected" : "ConnectWallet"}
