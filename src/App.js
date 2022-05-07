@@ -50,8 +50,14 @@ function App() {
             onChange={(e) => setMessage(e.target.value)}
             value={message}
             type="text"
+            placeholder="type your message"
           />
-          <button onClick={async () => setWaveNum(await wave(message))}>
+          <button
+            onClick={async () => {
+              setWaveNum(await wave(message));
+              setMessage("");
+            }}
+          >
             Send Message
           </button>
         </div>
