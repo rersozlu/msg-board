@@ -10,7 +10,15 @@ function App() {
   useEffect(() => {
     try {
       async function checkIfConnected() {
+        const chainId = "0x4";
+        if (window.ethereum.networkVersion !== chainId) {
+          await window.ethereum.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: "0x4" }],
+          });
+        }
         const userAcc = await checkIfWalletConnected();
+
         setAccount(userAcc);
         const num = await getWaveCount();
         setWaveNum(num);
@@ -26,9 +34,9 @@ function App() {
   const allMessagesArray = allMessages
     .map((msg, index) => {
       return (
-        <div className="msg-box">
-          <div className="message" key={index}>
-            <h4>MSG NO: {index + 1}</h4>
+        <div className="msg-box" key={index}>
+          <div className="message">
+            <h4>Nº. {index + 1}</h4>
             <p>
               Sender:{" "}
               {msg.address.slice(0, 3) +
@@ -81,9 +89,7 @@ function App() {
             Send Message
           </button>
         </div>
-
         {allMessagesArray}
-
       </div>
     </>
   );
