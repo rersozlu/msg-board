@@ -17,7 +17,7 @@ function App() {
     }
 
     checkIfConnected();
-  }, [account]);
+  }, [account, waveNum]);
   const allMessagesArray = allMessages.map((msg, index) => {
     return (
       <div className="message" key={index}>
