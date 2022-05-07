@@ -25,6 +25,8 @@ body {
   width: 50%;
   border-radius: 15px;
   margin: 20px auto;
+  display: flex;
+  flex-direction: column;
 }
 nav {
   color: #cc5333;
@@ -122,4 +124,11 @@ nav > button:hover {
   .warning {
     display: block;
   }
+}
+
+footer {
+  margin-bottom: auto;
+  margin-left: auto;
+  font-size: 12px;
+  text-align: end;
 }

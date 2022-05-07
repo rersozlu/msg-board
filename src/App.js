@@ -54,6 +54,8 @@ function App() {
         </div>
 
         {allMessagesArray}
+
+        <footer>Rinkeby Testnet</footer>
       </div>
     </>
   );
