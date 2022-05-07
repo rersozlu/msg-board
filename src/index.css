@@ -130,13 +130,6 @@ nav > button:hover {
   }
 }
 
-footer {
-  margin-bottom: auto;
-  margin-left: auto;
-  font-size: 12px;
-  text-align: end;
-}
-
 .italic {
   font-family: "Square Peg", cursive;
   font-size: 1.2em;
