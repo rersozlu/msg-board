@@ -70,6 +70,7 @@ nav > button:hover {
   font-size: 16px;
   padding: 0.5em 1em;
   border-radius: 5px;
+  margin-left: 13px;
 }
 .form button {
   background-image: linear-gradient(
@@ -103,13 +104,16 @@ nav > button:hover {
 .message h4 {
   margin: 0;
 }
-.message {
+.msg-box {
   background: #d6a4a4;
-  padding: 0.1em 0.5em;
+  padding: 0.1em 0.8em;
   font-size: 15px;
   width: 70%;
   margin: 10px auto;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .warning {
