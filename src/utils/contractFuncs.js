@@ -14,7 +14,6 @@ async function getWaveCount() {
       signer
     );
     let count = await wavePortalContract.getTotalWaves();
-    console.log(count.toNumber());
     return count.toNumber();
   }
 }
@@ -30,9 +29,7 @@ async function wave(message) {
     signer
   );
   let waveTxn = await wavePortalContract.wave(message);
-  console.log("txn mining");
   await waveTxn.wait();
-  console.log("txn mined", waveTxn.hash);
   return await getWaveCount();
 }
 
@@ -53,7 +50,6 @@ async function getAllWaves() {
     timestamp: new Date(msg.timestamp * 1000),
     message: msg.message,
   }));
-  console.log(wavesCleaned);
   return wavesCleaned;
 }
 

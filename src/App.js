@@ -10,7 +10,6 @@ function App() {
     async function checkIfConnected() {
       const userAcc = await checkIfWalletConnected();
       setAccount(userAcc);
-      console.log("rendered");
       const num = await getWaveCount();
       setWaveNum(num);
       const allMessages = await getAllWaves();
