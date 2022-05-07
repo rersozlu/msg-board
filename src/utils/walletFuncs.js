@@ -13,7 +13,6 @@ async function checkIfWalletConnected() {
 async function connectWallet() {
   const { ethereum } = window;
   const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-  console.log(accounts[0]);
   return accounts[0];
 }
 export { checkIfWalletConnected, connectWallet };

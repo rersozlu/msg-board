@@ -8,20 +8,23 @@ function App() {
   const [message, setMessage] = useState("");
   const [allMessages, setAllMessages] = useState([]);
   useEffect(() => {
-    async function checkIfConnected() {
-      const userAcc = await checkIfWalletConnected();
-      setAccount(userAcc);
-      const num = await getWaveCount();
-      setWaveNum(num);
-      const allMessages = await getAllWaves();
-      setAllMessages(allMessages);
-    }
+    try {
+      async function checkIfConnected() {
+        const userAcc = await checkIfWalletConnected();
+        setAccount(userAcc);
+        const num = await getWaveCount();
+        setWaveNum(num);
+        const allMessages = await getAllWaves();
+        setAllMessages(allMessages);
+      }
 
-    checkIfConnected();
+      checkIfConnected();
+    } catch (e) {
+      console.log(e);
+    }
   }, [account, waveNum]);
   const allMessagesArray = allMessages
     .map((msg, index) => {
-      console.log(msg.address);
       return (
         <div className="msg-box">
           <div className="message" key={index}>
