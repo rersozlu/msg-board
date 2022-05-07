@@ -121,15 +121,6 @@ nav > button:hover {
   text-align: center;
 }
 
-@media (max-width: 1100px) {
-  .App {
-    display: none;
-  }
-  .warning {
-    display: block;
-  }
-}
-
 .italic {
   font-family: "Square Peg", cursive;
   font-size: 1.2em;
@@ -137,18 +128,32 @@ nav > button:hover {
 
 .loading {
   height: 50px;
-  width: 35%;
+  width: 60%;
   border-radius: 10px;
   color: #23074d;
   font-family: "Sacramento", cursive;
-  font-size: 30px;
+  font-size: 22px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 1px auto;
 }
 
 .loading-icon {
-  margin: 0;
+  margin: 0 4px;
   width: 25%;
+}
+
+@media (max-width: 1200px) {
+  .App {
+    width: 80%;
+  }
+}
+@media (max-width: 700px) {
+  .App {
+    display: none;
+  }
+  .warning {
+    display: block;
+  }
 }

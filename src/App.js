@@ -7,7 +7,7 @@ function App() {
   const [account, setAccount] = useState("");
   const [waveNum, setWaveNum] = useState(0);
   const [message, setMessage] = useState("");
-  const [messageSending, setMessageSending] = useState(false);
+  const [messageSending, setMessageSending] = useState(true);
   const [allMessages, setAllMessages] = useState([]);
   useEffect(() => {
     try {
