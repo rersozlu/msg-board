@@ -23,7 +23,9 @@ function App() {
       <div className="message" key={index}>
         <h4>MSG NO: {index + 1}</h4>
         <p>Sender: {msg.address}</p>
-        <p>Content: {msg.message}</p>
+        <p>
+          Content: <strong>{msg.message}</strong>
+        </p>
         <p>Date: {msg.timestamp.toString()}</p>
       </div>
     );
