@@ -18,18 +18,20 @@ function App() {
 
     checkIfConnected();
   }, [account, waveNum]);
-  const allMessagesArray = allMessages.map((msg, index) => {
-    return (
-      <div className="message" key={index}>
-        <h4>MSG NO: {index + 1}</h4>
-        <p>Sender: {msg.address}</p>
-        <p>
-          Content: <strong>{msg.message}</strong>
-        </p>
-        <p>Date: {msg.timestamp.toLocaleString()}</p>
-      </div>
-    );
-  });
+  const allMessagesArray = allMessages
+    .map((msg, index) => {
+      return (
+        <div className="message" key={index}>
+          <h4>MSG NO: {index + 1}</h4>
+          <p>Sender: {msg.address}</p>
+          <p>
+            Content: <strong>{msg.message}</strong>
+          </p>
+          <p>Date: {msg.timestamp.toLocaleString()}</p>
+        </div>
+      );
+    })
+    .reverse();
   return (
     <>
       <h1 className="warning">
