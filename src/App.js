@@ -10,6 +10,7 @@ function App() {
     async function checkIfConnected() {
       const userAcc = await checkIfWalletConnected();
       setAccount(userAcc);
+      console.log("rendered");
       const num = await getWaveCount();
       setWaveNum(num);
       const allMessages = await getAllWaves();
@@ -17,7 +18,7 @@ function App() {
     }
 
     checkIfConnected();
-  }, []);
+  }, [account]);
   const allMessagesArray = allMessages.map((msg, index) => {
     return (
       <div className="message" key={index}>
@@ -38,7 +39,7 @@ function App() {
           <h1>MESSAGE BOARD</h1>
           <p>Total Messages: {waveNum}</p>
           <button onClick={async () => setAccount(await connectWallet())}>
-            ConnectWallet
+            {account ? "Connected" : "ConnectWallet"}
           </button>
         </nav>
         <div className="form">
