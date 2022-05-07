@@ -26,7 +26,7 @@ function App() {
         <p>
           Content: <strong>{msg.message}</strong>
         </p>
-        <p>Date: {msg.timestamp.toString()}</p>
+        <p>Date: {msg.timestamp.toLocaleString()}</p>
       </div>
     );
   });
