@@ -39,7 +39,10 @@ function App() {
       });
     });
   }
-
+  function disconnect() {
+    venlyConnect.logout({ windowMode: "REDIRECT" });
+    setVenlyAcc({});
+  }
   useEffect(() => {
     try {
       const venly = new VenlyConnect("Testaccount", {
@@ -136,8 +139,8 @@ function App() {
           >
             Send Message
           </button>
-          <button onClick={connectWithVenly}>
-            {venlyAcc.acc ? "Connected with Venly" : "Connect with Venly"}
+          <button onClick={venlyAcc.acc ? disconnect : connectWithVenly}>
+            {venlyAcc.acc ? "Disconnect" : "Connect with Venly"}
           </button>
         </div>
         {messageSending && <Loading />}
