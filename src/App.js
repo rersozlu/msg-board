@@ -3,14 +3,49 @@ import { checkIfWalletConnected, connectWallet } from "./utils/walletFuncs";
 import { getWaveCount, wave, getAllWaves } from "./utils/contractFuncs";
 import { Hashicon } from "@emeraldpay/hashicon-react";
 import Loading from "./Loading";
+import { VenlyConnect } from "@venly/connect";
 function App() {
   const [account, setAccount] = useState("");
   const [waveNum, setWaveNum] = useState(0);
   const [message, setMessage] = useState("");
   const [messageSending, setMessageSending] = useState(false);
   const [allMessages, setAllMessages] = useState([]);
+  const [venlyConnect, setVenlyConnect] = useState({});
+  const [venlyAcc, setVenlyAcc] = useState({ acc: "", id: "" });
+
+  async function sendWithVenly() {
+    const signer = venlyConnect.createSigner();
+    signer
+      .executeContract({
+        secretType: "ETHEREUM",
+        walletId: venlyAcc.id,
+        to: "0xe41E99D39E84Ec080244E1aA5aB15E1b1d708618",
+        value: 0,
+        functionName: "wave",
+        inputs: [{ type: "string", value: message }],
+      })
+      .then((resp) => console.log(resp));
+  }
+
+  async function connectWithVenly() {
+    await venlyConnect.flows.getAccount("ETHEREUM").then((account) => {
+      console.log("User name:", account.auth.tokenParsed.name);
+      console.log("User email:", account.auth.tokenParsed.email);
+      console.log("First wallet address:", account.wallets[0].address);
+      console.log("First wallet balance:", account.wallets[0].balance.balance);
+      setVenlyAcc({
+        acc: account.wallets[0].address,
+        id: account.wallets[0].id,
+      });
+    });
+  }
+
   useEffect(() => {
     try {
+      const venly = new VenlyConnect("Testaccount", {
+        environment: "staging",
+      });
+      setVenlyConnect(venly);
       async function checkIfConnected() {
         const chainId = "0x4";
         if (window.ethereum.networkVersion !== chainId) {
@@ -83,7 +118,11 @@ function App() {
               try {
                 if (message && message !== " ") {
                   setMessageSending(true);
-                  setWaveNum(await wave(message));
+                  if (venlyAcc.acc) {
+                    await sendWithVenly();
+                  } else {
+                    setWaveNum(await wave(message));
+                  }
                   setMessage("");
                   setMessageSending(false);
                 } else {
@@ -96,6 +135,9 @@ function App() {
             }}
           >
             Send Message
+          </button>
+          <button onClick={connectWithVenly}>
+            {venlyAcc.acc ? "Connected with Venly" : "Connect with Venly"}
           </button>
         </div>
         {messageSending && <Loading />}
